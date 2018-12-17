@@ -8,9 +8,13 @@ public class ScaleableFunction : MonoBehaviour {
     public float speed;
     public Vector3 startSize;
     public Vector3 endSize;
+    public bool isUseBoxColliderScaleAsEndSize = true;
+    public bool isAutoScaling = true;
+
     private float time;
     private bool isGoing;
     private Vector3 centerPoint;
+    private Vector3 _scale = Vector3.zero;
     // Use this for initialization
     void Start()
     {
@@ -20,7 +24,20 @@ public class ScaleableFunction : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        scaling();
+        if(isAutoScaling)
+            scaling();
+        else{
+            if (isGoing)
+                return;
+            time -= Time.deltaTime * speed;
+            if (time <= 0)
+            {
+                time = 0;
+                isGoing = true;
+            }
+            _scale = Vector3.Lerp(startSize, endSize, time);
+            this.transform.localScale = _scale;
+        }
     }
 
     public void initialize()
@@ -28,40 +45,85 @@ public class ScaleableFunction : MonoBehaviour {
         
         //attribute seting 
         time = 0;
-        isGoing = true;
         speed = 1;
         startSize = Vector3.one;
-        endSize = GetComponent<BoxCollider>().bounds.size;
+
+        if (isAutoScaling)
+            isGoing = true;
+        
+        if(isUseBoxColliderScaleAsEndSize)
+            endSize = GetComponent<BoxCollider>().bounds.size;
+        
         GetComponent<BoxCollider>().size = startSize;
+        GetComponent<BoxCollider>().center = Vector3.zero;
         //centerPoint = (startPoint.position + endPoint.position) / 2 + this.transform.parent.position;
 
 
     }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (isAutoScaling)
+    //        return;
+
+    //    if (other.gameObject.tag != "Player")
+    //        return;
+
+    //    //isGoing = true;
+    //}
+    private void OnTriggerStay(Collider other)
+    {
+        if (isAutoScaling)
+            return;
+
+        if (other.gameObject.tag != "Player")
+            return;
+
+        //Vector3 _scale = Vector3.zero;
+
+        time += Time.deltaTime * speed;
+        if (time >= 1)
+        {
+            time = 1;
+        }
+         
+        _scale = Vector3.Lerp(startSize, endSize, time);
+        this.transform.localScale = _scale;
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (isAutoScaling)
+            return;
+
+        if (other.gameObject.tag != "Player")
+            return;
+
+        isGoing = false;
+    }
+
+
 
     public void scaling()
     {
-        Vector3 _scale =Vector3.zero;
+        //Vector3 _scale =Vector3.zero;
         if (isGoing)
         {
-            _scale = Vector3.Lerp(startSize, endSize, time);
             time += Time.deltaTime * speed;
             if (time >= 1)
             {
-                time = 0;
+                time = 1;
                 isGoing = false;
             }
         }
         else
         {
-            _scale = Vector3.Lerp(endSize, startSize, time);
-            time += Time.deltaTime * speed;
-            if (time >= 1)
+            time -= Time.deltaTime * speed;
+            if (time <= 0)
             {
                 time = 0;
                 isGoing = true;
             }
         }
-
+        _scale = Vector3.Lerp(startSize, endSize, time);
         this.transform.localScale = _scale;
     }
 

@@ -32,8 +32,7 @@ public class MovingFunction : MonoBehaviour {
         //attribute seting 
         time = 0;
         isGoing = true;
-        if(speed == 0)
-            speed = 1;
+        speed = 1;
 
         //centerPoint = (startPoint.position + endPoint.position) / 2 + this.transform.parent.position;
 
