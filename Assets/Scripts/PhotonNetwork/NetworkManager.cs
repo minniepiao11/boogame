@@ -8,23 +8,54 @@ using UnityEngine.UI;
 
 public partial class NetworkManager : Photon.PunBehaviour {
 
+    static NetworkManager Instance;
 
-    public static NetworkManager Singleton
+    public string _gameVersion = "0.1";
+
+    [Header("是否一進開啟遊戲自動連線")]
+    public bool isAutoConnect = true;
+
+
+    [Space(10)]
+    [Header("玩家在Resource資料夾的名稱")]
+    public string PlayerName_1 = "Player_1_Ethan";
+    public string PlayerName_2 = "Player_2_Ethan";
+
+    [Header("設定按鈕")]
+    [Tooltip("設定開始按鈕，若沒有設置則自動尋找")]
+    public Button _startButton;
+    [Tooltip("設定開始按鈕，若沒有設置則自動尋找")]
+    public Button _leaveRoomButton;
+
+    private Vector3 _playerFirstPosition_1;
+    [Header("設置玩家起始位置")]
+    [Tooltip("設定玩家一初始位置")]
+    public Transform First_player_position;
+    [HideInInspector]
+    public Vector3 playerFirstPosition_1
+    {
+        get { 
+            _playerFirstPosition_1 = First_player_position.position;
+            return _playerFirstPosition_1; 
+        }
+        set { _playerFirstPosition_1 = value; }
+    }
+
+    private Vector3 _playerFirstPosition_2;
+    [Tooltip("設定玩家二初始位置")]
+    public Transform Second_player_position;
+    [HideInInspector]
+    public Vector3 playerFirstPosition_2
     {
         get
         {
-            return Instance;
+            _playerFirstPosition_2 = Second_player_position.position;
+            return _playerFirstPosition_2;
         }
+        set { _playerFirstPosition_2 = value; }
     }
 
-    static NetworkManager Instance;
-    public string _gameVersion = "0.1";
 
-    //public GameObject _playerPrefab_1;
-    //public GameObject _playerPrefab_2;
-
-    public Button _startButton;
-    public Button _leaveRoomButton;
 
     private void Awake()
     {
@@ -32,10 +63,21 @@ public partial class NetworkManager : Photon.PunBehaviour {
         PhotonNetwork.autoJoinLobby = false;
         PhotonNetwork.automaticallySyncScene = true;
 
+        if(_startButton == null)
+            _startButton = GameObject.Find("StartButton").GetComponent<Button>();
+
+        if (_startButton == null)
+            _leaveRoomButton = GameObject.Find("DisconnectButton").GetComponent<Button>();
+
         //button event listener
         _startButton.onClick.AddListener(Connect);
         _leaveRoomButton.onClick.AddListener(LeaveRoom);
 
+    }
+    private void Start()
+    {
+        if (isAutoConnect)
+            Connect();
     }
 
     void Connect()
@@ -48,6 +90,7 @@ public partial class NetworkManager : Photon.PunBehaviour {
         {
             PhotonNetwork.ConnectUsingSettings(_gameVersion);
         }
+
     }
 
     public void LeaveRoom()
@@ -69,6 +112,8 @@ public partial class NetworkManager : Photon.PunBehaviour {
 
     public override void OnDisconnectedFromPhoton()
     {
+        _startButton.gameObject.SetActive(true);
+        _leaveRoomButton.gameObject.SetActive(false);
         Debug.Log("OnDisconnectedFromPhoton() 已被呼叫");
     }
 
@@ -91,23 +136,20 @@ public partial class NetworkManager : Photon.PunBehaviour {
         GameObject player1;
         GameObject player2;
 
-        //player1 = Instantiate(_playerPrefab_1, Vector3.zero, Quaternion.identity);
-        //player2 = Instantiate(_playerPrefab_2, Vector3.zero, Quaternion.identity);
-
-        //player1.SetActive(false);
-        //player2.SetActive(false);
-
         if(PhotonNetwork.room.PlayerCount == 1)
         {
-            //player1.SetActive(true);
-            player1 = PhotonNetwork.Instantiate("Player (1)", Vector3.zero, Quaternion.identity,0);
+            player1 = PhotonNetwork.Instantiate(PlayerName_1, playerFirstPosition_1, Quaternion.identity,0);
+            player1.transform.GetChild(0).tag = "Player";
+            player1.transform.GetChild(1).gameObject.SetActive(true);
         }
         else if (PhotonNetwork.room.PlayerCount == 2)
         {
-            //player1.SetActive(true);
-            //player2.SetActive(true);
-            player2 = PhotonNetwork.Instantiate("Player (2)", new Vector3(-1,0,-2), Quaternion.identity, 0);
+            player2 = PhotonNetwork.Instantiate(PlayerName_2, playerFirstPosition_2, Quaternion.identity, 0);
+            player2.transform.GetChild(0).tag = "Player";
+            player2.transform.GetChild(1).gameObject.SetActive(true);
         }
+        _startButton.gameObject.SetActive(false);
+        _leaveRoomButton.gameObject.SetActive(true);
 
         Debug.Log("OnJoinedRoom() 已被PUN呼叫，此玩家已進入房間");
     }
