@@ -15,6 +15,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		[SerializeField] float m_MoveSpeedMultiplier = 1f;
 		[SerializeField] float m_AnimSpeedMultiplier = 1f;
 		[SerializeField] float m_GroundCheckDistance = 0.1f;
+        [SerializeField] LayerMask groundMask = 8;
 
 		Rigidbody m_Rigidbody;
 		Animator m_Animator;
@@ -46,9 +47,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		public void Move(Vector3 move, bool crouch, bool jump)
 		{
 
-			// convert the world relative moveInput vector into a local-relative
-			// turn amount and forward amount required to head in the desired
-			// direction.
+			 //convert the world relative moveInput vector into a local-relative
+			 //turn amount and forward amount required to head in the desired
+			 //direction.
 			if (move.magnitude > 1f) move.Normalize();
 			move = transform.InverseTransformDirection(move);
 			CheckGroundStatus();
@@ -201,25 +202,43 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 		void CheckGroundStatus()
 		{
-			RaycastHit hitInfo;
+			
 #if UNITY_EDITOR
 			// helper to visualise the ground check ray in the scene view
-			Debug.DrawLine(transform.position + (Vector3.up * 0.1f), transform.position + (Vector3.up * 0.1f) + (Vector3.down * m_GroundCheckDistance));
+            Debug.DrawLine(transform.position + (Vector3.up * 0.1f), transform.position + (Vector3.up * 0.1f) + (Vector3.down * m_GroundCheckDistance),Color.red);
 #endif
 			// 0.1f is a small offset to start the ray from inside the character
 			// it is also good to note that the transform position in the sample assets is at the base of the character
-			if (Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, m_GroundCheckDistance))
-			{
-				m_GroundNormal = hitInfo.normal;
-				m_IsGrounded = true;
-				m_Animator.applyRootMotion = true;
-			}
-			else
-			{
-				m_IsGrounded = false;
-				m_GroundNormal = Vector3.up;
-				m_Animator.applyRootMotion = false;
-			}
+			//if (Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, m_GroundCheckDistance))
+			//{
+			//	m_GroundNormal = hitInfo.normal;
+			//	m_IsGrounded = true;
+			//	m_Animator.applyRootMotion = true;
+			//}
+			//else
+			//{
+			//	m_IsGrounded = false;
+			//	m_GroundNormal = Vector3.up;
+			//	m_Animator.applyRootMotion = false;
+			//}
+            RaycastHit hitInfo;
+
+            bool isGround_collider = Physics.CheckSphere(transform.position, m_GroundCheckDistance,groundMask,QueryTriggerInteraction.UseGlobal);
+            bool isGround_ray = Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, m_GroundCheckDistance);
+            //|| isGround_ray
+            if(isGround_collider)
+            {
+                
+                m_GroundNormal = hitInfo.normal;
+                m_IsGrounded = true;
+                m_Animator.applyRootMotion = true;
+            }
+            else
+            {
+                m_IsGrounded = false;
+                m_GroundNormal = Vector3.up;
+                m_Animator.applyRootMotion = false;
+            }
 		}
 	}
 }
