@@ -29,7 +29,8 @@ public class usingTouchEvent : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        text = GameObject.Find("EventText").GetComponent<Text>();
+        if(text == null)
+            text = GameObject.Find("EventText").GetComponent<Text>();
         //playerRig = Player.GetComponent<Rigidbody>();
         controller = GetComponent<CharacterController>();
         groundChecker = transform.GetChild(0);
