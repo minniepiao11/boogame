@@ -53,9 +53,13 @@ public class usingTouchEvent : MonoBehaviour {
         moveVelocity.z = _input.y * MoveSpeed * Time.deltaTime;
 
         moveVelocity.y += gravity * Mathf.Pow(Time.deltaTime, 2);
-
+       
         bool isQuickTap = mobileTouch.quickTapEvent.isQuickTap;
-        bool isGrounded = Physics.CheckSphere(groundChecker.position, GroundDistance, groundMask, QueryTriggerInteraction.Ignore);
+        bool isGrounded = Physics.CheckSphere(
+            groundChecker.position,
+            GroundDistance,
+            groundMask,
+            QueryTriggerInteraction.Ignore);
 
         text.text = "input : " + "("+ _input.x + "," + _input.y + ")" + 
                     " isQuickTap: " + isQuickTap + 
