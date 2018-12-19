@@ -166,8 +166,14 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			// apply extra gravity from multiplier:
             Vector3 extraGravityForce = (Physics.gravity * m_GravityMultiplier) - Physics.gravity;
 			m_Rigidbody.AddForce(extraGravityForce);
-            m_Rigidbody.velocity = new Vector3(_move.x * 5, m_Rigidbody.velocity.y, _move.z * 5);
-			m_GroundCheckDistance = m_Rigidbody.velocity.y < 0 ? m_OrigGroundCheckDistance : 0.01f;
+            bool isGround_collider = Physics.CheckSphere(transform.position + Vector3.up * 0.1f, m_GroundCheckDistance * 2, groundMask, QueryTriggerInteraction.UseGlobal);
+
+            if(!isGround_collider)
+            {
+                m_Rigidbody.velocity = new Vector3(_move.x * 5, m_Rigidbody.velocity.y, _move.z * 5);
+            }
+
+            m_GroundCheckDistance = m_Rigidbody.velocity.y < 0 ? m_OrigGroundCheckDistance : 0.01f;
 		}
 
 
@@ -217,10 +223,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			
             RaycastHit hitInfo;
 
-            bool isGround_collider = Physics.CheckSphere(transform.position + Vector3.up * 0.1f, m_GroundCheckDistance,groundMask,QueryTriggerInteraction.UseGlobal);
+            bool isGround_collider = Physics.CheckSphere(transform.position + Vector3.up * 0.1f, m_GroundCheckDistance * 0.5f,groundMask,QueryTriggerInteraction.UseGlobal);
             bool isGround_ray = Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, m_GroundCheckDistance);
-
-            if(isGround_collider || isGround_ray)
+            // || isGround_ray
+            if(isGround_collider)
             {
                 
                 m_GroundNormal = hitInfo.normal;
