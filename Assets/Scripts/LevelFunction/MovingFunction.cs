@@ -41,9 +41,10 @@ public class MovingFunction : MonoBehaviour {
         transform.parent = fatherObject.transform;
 
     }
-
+    Vector3 movement;
     public void moving()
     {
+        movement = this.transform.position;
         Vector3 movingDir;
         if (isGoing)
         {
@@ -65,6 +66,7 @@ public class MovingFunction : MonoBehaviour {
                 isGoing = true;
             }
         }
+        movement = movingDir - movement;
 
         this.transform.position = movingDir;
     }
@@ -73,21 +75,26 @@ public class MovingFunction : MonoBehaviour {
     {
         if(other.gameObject.tag == "Player")
         {
-            other.gameObject.transform.parent = this.gameObject.transform;
+            other.gameObject.GetComponent<Rigidbody>().MovePosition(other.transform.position + movement);
+            //other.gameObject.transform.parent = this.gameObject.transform;
         }
             
     }
 
     private void OnTriggerStay(Collider other)
     {
-        
+        if (other.gameObject.tag == "Player")
+        {
+            other.gameObject.GetComponent<Rigidbody>().MovePosition(other.transform.position + movement);
+            //other.gameObject.transform.parent = this.gameObject.transform;
+        }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
-        {
-            other.gameObject.transform.parent = null;
-        }
+        //if (other.gameObject.tag == "Player")
+        //{
+        //    //other.gameObject.transform.parent = null;
+        //}
     }
 
 
