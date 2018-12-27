@@ -46,7 +46,7 @@ public class TriggerToScaleUp : MonoBehaviour {
         {
             _scale = Vector3.Lerp(original_scale, new Vector3(original_scale.x,original_scale.y * magScaleY,original_scale.z), time/growingTime);
 
-            if (time <= 1)
+            if (time / growingTime <= 1)
             {
                 time += Time.deltaTime;
             }
@@ -55,7 +55,7 @@ public class TriggerToScaleUp : MonoBehaviour {
         {
             _scale = Vector3.Lerp(original_scale, new Vector3(original_scale.x, original_scale.y * magScaleY, original_scale.z), time / growingTime);
 
-            if (time >= 0)
+            if (time / growingTime >= 0)
             {
                 time -= Time.deltaTime;
             }
