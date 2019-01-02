@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 776df86da98044945b7b987678c0a96d
+guid: e13b67bf8111f430b8b0ed793b00e71e
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -43,8 +43,8 @@ ModelImporter:
     100074: mixamorig_Spine
     100076: mixamorig_Spine1
     100078: mixamorig_Spine2
-    100080: //RootNode
-    100082: R_foot
+    100080: R_foot
+    100082: //RootNode
     100084: Sphere_2
     400000: Capsule
     400002: Capsule_1
@@ -86,8 +86,8 @@ ModelImporter:
     400074: mixamorig_Spine
     400076: mixamorig_Spine1
     400078: mixamorig_Spine2
-    400080: //RootNode
-    400082: R_foot
+    400080: R_foot
+    400082: //RootNode
     400084: Sphere_2
     2100000: Mat_1
     2100002: Mat.2
@@ -102,8 +102,7 @@ ModelImporter:
     4300012: L_hand
     4300014: R_foot
     4300016: L_foot
-    7400000: Noonoo_Jump
-    7400002: CINEMA_4D_Main
+    7400000: CINEMA_4D_Main
     9500000: //RootNode
     13700000: Capsule
     13700002: Capsule_1
@@ -114,6 +113,7 @@ ModelImporter:
     13700012: L_hand
     13700014: R_foot
     13700016: Sphere_2
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -141,63 +141,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: Noonoo_Jump
-      takeName: CINEMA_4D_Main
-      firstFrame: 32
-      lastFrame: 36
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: CINEMA_4D_Main
-      takeName: CINEMA_4D_Main
-      firstFrame: 0
-      lastFrame: 150
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []
