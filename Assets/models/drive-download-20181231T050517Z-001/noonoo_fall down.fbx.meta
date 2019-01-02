@@ -1,0 +1,284 @@
+fileFormatVersion: 2
+guid: 1c5c438eebbf44964a278e5140fba39b
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Capsule
+    100002: Capsule_1
+    100004: Cylinder
+    100006: EYE
+    100008: FR_hand
+    100010: L_foot
+    100012: L_hand
+    100014: mixamorig_Head
+    100016: mixamorig_HeadTop_End
+    100018: mixamorig_Hips
+    100020: mixamorig_LeftArm
+    100022: mixamorig_LeftFoot
+    100024: mixamorig_LeftForeArm
+    100026: mixamorig_LeftHand
+    100028: mixamorig_LeftHandIndex1
+    100030: mixamorig_LeftHandIndex2
+    100032: mixamorig_LeftHandIndex3
+    100034: mixamorig_LeftHandIndex4
+    100036: mixamorig_LeftLeg
+    100038: mixamorig_LeftShoulder
+    100040: mixamorig_LeftToe_End
+    100042: mixamorig_LeftToeBase
+    100044: mixamorig_LeftUpLeg
+    100046: mixamorig_Neck
+    100048: mixamorig_RightArm
+    100050: mixamorig_RightFoot
+    100052: mixamorig_RightForeArm
+    100054: mixamorig_RightHand
+    100056: mixamorig_RightHandIndex1
+    100058: mixamorig_RightHandIndex2
+    100060: mixamorig_RightHandIndex3
+    100062: mixamorig_RightHandIndex4
+    100064: mixamorig_RightLeg
+    100066: mixamorig_RightShoulder
+    100068: mixamorig_RightToe_End
+    100070: mixamorig_RightToeBase
+    100072: mixamorig_RightUpLeg
+    100074: mixamorig_Spine
+    100076: mixamorig_Spine1
+    100078: mixamorig_Spine2
+    100080: //RootNode
+    100082: R_foot
+    100084: Sphere_2
+    400000: Capsule
+    400002: Capsule_1
+    400004: Cylinder
+    400006: EYE
+    400008: FR_hand
+    400010: L_foot
+    400012: L_hand
+    400014: mixamorig_Head
+    400016: mixamorig_HeadTop_End
+    400018: mixamorig_Hips
+    400020: mixamorig_LeftArm
+    400022: mixamorig_LeftFoot
+    400024: mixamorig_LeftForeArm
+    400026: mixamorig_LeftHand
+    400028: mixamorig_LeftHandIndex1
+    400030: mixamorig_LeftHandIndex2
+    400032: mixamorig_LeftHandIndex3
+    400034: mixamorig_LeftHandIndex4
+    400036: mixamorig_LeftLeg
+    400038: mixamorig_LeftShoulder
+    400040: mixamorig_LeftToe_End
+    400042: mixamorig_LeftToeBase
+    400044: mixamorig_LeftUpLeg
+    400046: mixamorig_Neck
+    400048: mixamorig_RightArm
+    400050: mixamorig_RightFoot
+    400052: mixamorig_RightForeArm
+    400054: mixamorig_RightHand
+    400056: mixamorig_RightHandIndex1
+    400058: mixamorig_RightHandIndex2
+    400060: mixamorig_RightHandIndex3
+    400062: mixamorig_RightHandIndex4
+    400064: mixamorig_RightLeg
+    400066: mixamorig_RightShoulder
+    400068: mixamorig_RightToe_End
+    400070: mixamorig_RightToeBase
+    400072: mixamorig_RightUpLeg
+    400074: mixamorig_Spine
+    400076: mixamorig_Spine1
+    400078: mixamorig_Spine2
+    400080: //RootNode
+    400082: R_foot
+    400084: Sphere_2
+    2100000: Mat_1
+    2100002: Mat.2
+    2100004: No Name
+    2100006: Mat.1
+    4300000: Capsule_1
+    4300002: EYE
+    4300004: Cylinder
+    4300006: Sphere_2
+    4300008: Capsule
+    4300010: FR_hand
+    4300012: L_hand
+    4300014: R_foot
+    4300016: L_foot
+    7400000: Noonoo_Idle
+    7400002: Noonoo_Fall
+    7400004: CINEMA_4D_Main
+    9500000: //RootNode
+    13700000: Capsule
+    13700002: Capsule_1
+    13700004: Cylinder
+    13700006: EYE
+    13700008: FR_hand
+    13700010: L_foot
+    13700012: L_hand
+    13700014: R_foot
+    13700016: Sphere_2
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Noonoo_Idle
+      takeName: CINEMA_4D_Main
+      firstFrame: 83
+      lastFrame: 89
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Noonoo_Fall
+      takeName: CINEMA_4D_Main
+      firstFrame: 12
+      lastFrame: 55
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CINEMA_4D_Main
+      takeName: CINEMA_4D_Main
+      firstFrame: 0
+      lastFrame: 90
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
