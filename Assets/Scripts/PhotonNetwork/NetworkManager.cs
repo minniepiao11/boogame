@@ -151,6 +151,9 @@ public partial class NetworkManager : Photon.PunBehaviour {
         _startButton.gameObject.SetActive(false);
         _leaveRoomButton.gameObject.SetActive(true);
 
+        GameObject originalCam = GameObject.Find("Main Camera");
+        Destroy(originalCam);
+
         Debug.Log("OnJoinedRoom() 已被PUN呼叫，此玩家已進入房間");
     }
 

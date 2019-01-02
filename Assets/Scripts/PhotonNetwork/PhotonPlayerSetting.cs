@@ -5,13 +5,14 @@ using UnityStandardAssets.Characters.ThirdPerson;
 using System.Text;
 
 public class PhotonPlayerSetting : Photon.MonoBehaviour {
-
+    GameObject originalCam;
 	// Use this for initialization
 	void Start () {
         if(!photonView.isMine)
         {
             this.GetComponent<ThirdPersonUserControl>().enabled = false;
-            //this.GetComponent<ThirdPersonCharacter>().enabled = false;
+            originalCam = GameObject.Find("Main Camera");
+            Destroy(originalCam);
         }
 	}
 	
