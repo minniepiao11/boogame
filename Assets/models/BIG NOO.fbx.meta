@@ -44,7 +44,17 @@ ModelImporter:
     4300004: Cylinder
     4300006: EYE
     4300008: Capsule_2
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat
+    second: {fileID: 2100000, guid: 1ca125de0f0364e7489c4e44c906643e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat.2
+    second: {fileID: 2100000, guid: 03ed18fdbbd9f4f2cb50aec522ab1083, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -116,6 +126,7 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
