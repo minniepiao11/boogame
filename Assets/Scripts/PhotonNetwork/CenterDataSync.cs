@@ -9,25 +9,27 @@ public class CenterDataSync : PunBehaviour{
     public bool isSyncInvisible = true;
     public bool isSyncMove = true;
     public bool isSyncScale = true;
-
+    public GameObject[] scaleObjects;
+    public GameObject[] invisibleObjects;
+    public GameObject[] moveObjects;
     #endregion
 
     #region define 3 types of Level Object
-    private Invisible _invisible = new Invisible();
-    class Invisible
+    public  Invisible _invisible;
+    public struct Invisible
     {
         public bool isActive;
         public GameObject[] invisibleObjects;
 
     }
-    private Move _move = new Move();
-    struct Move
+    public  Move _move = new Move();
+    public struct Move
     {
         public bool isActive;
         public GameObject[] moveObjects;
     }
-    private Scale _scale = new Scale();
-    struct Scale
+    public  Scale _scale = new Scale();
+    public struct Scale
     {
         public bool isActive;
         public GameObject[] scaleObjects;
@@ -42,12 +44,17 @@ public class CenterDataSync : PunBehaviour{
         _invisible.invisibleObjects = GameObject.FindGameObjectsWithTag("invisibleObject");
         _move.moveObjects = GameObject.FindGameObjectsWithTag("moveObject");
         _scale.scaleObjects = GameObject.FindGameObjectsWithTag("scaleObject");
-
+        scaleObjects = GameObject.FindGameObjectsWithTag("scaleObject");
+        moveObjects = GameObject.FindGameObjectsWithTag("moveObject");
+        invisibleObjects = GameObject.FindGameObjectsWithTag("invisibleObject");
         if(_invisible.invisibleObjects == null ||
-           _move.moveObjects == null ||
            _scale.scaleObjects == null)
         {
             Debug.LogWarning("CenterDataSync : You forget to setting tags of the GameObject");
+        }
+        if(_move.moveObjects == null)
+        {
+            
         }
     }
     // Use this for initialization
