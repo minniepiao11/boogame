@@ -65,7 +65,7 @@ public class CenterDataSync : PunBehaviour{
             {
                 foreach (GameObject _scaleObject in _scale.scaleObjects)
                 {
-                    stream.SendNext(_scaleObject.transform.localScale);
+                    stream.SendNext((Vector3)_scaleObject.transform.localScale);
                 }
             }
 
@@ -73,7 +73,7 @@ public class CenterDataSync : PunBehaviour{
             {
                 foreach (GameObject _moveObject in _move.moveObjects)
                 {
-                    stream.SendNext(_moveObject.transform.position);
+                    stream.SendNext((Vector3)_moveObject.transform.position);
                 }
             }
 
@@ -87,9 +87,10 @@ public class CenterDataSync : PunBehaviour{
         }
         else if(stream.isReading)
         {
-            for (int i = 0; i < _scale.scaleObjects.Length; i++ )
+            foreach (GameObject _scaleObject in _move.moveObjects)
             {
-                _scale.scaleObjects[i].transform.localScale = (Vector3)stream.ReceiveNext();;
+                Vector3 scale = (Vector3)stream.ReceiveNext();
+                _scaleObject.transform.localScale = scale;;
             }
             foreach ( GameObject _invisibleObject in _invisible.invisibleObjects)
             {
@@ -97,7 +98,8 @@ public class CenterDataSync : PunBehaviour{
             }
             foreach (GameObject _moveObject in _move.moveObjects)
             {
-                _moveObject.transform.position = (Vector3)stream.ReceiveNext();
+                Vector3 position = (Vector3)stream.ReceiveNext();
+                _moveObject.transform.position = position;
             }
         }
     }
