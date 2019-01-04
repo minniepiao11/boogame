@@ -65,7 +65,8 @@ public class CenterDataSync : PunBehaviour{
             {
                 foreach (GameObject _scaleObject in _scale.scaleObjects)
                 {
-                    stream.SendNext((Vector3)_scaleObject.transform.localScale);
+                    Vector3 scale = _scaleObject.transform.localScale;
+                    stream.SendNext(scale);
                 }
             }
 
@@ -73,7 +74,8 @@ public class CenterDataSync : PunBehaviour{
             {
                 foreach (GameObject _moveObject in _move.moveObjects)
                 {
-                    stream.SendNext((Vector3)_moveObject.transform.position);
+                    Vector3 position = (Vector3)_moveObject.transform.position;
+                    stream.SendNext(position);
                 }
             }
 
@@ -81,7 +83,8 @@ public class CenterDataSync : PunBehaviour{
             {
                 foreach (GameObject _invisibleObject in _invisible.invisibleObjects)
                 {
-                    stream.SendNext(_invisibleObject.GetComponent<MeshRenderer>().enabled);
+                    bool acitve = _invisibleObject.GetComponent<MeshRenderer>().enabled;
+                    stream.SendNext(acitve);
                 }
             }
         }
@@ -94,7 +97,8 @@ public class CenterDataSync : PunBehaviour{
             }
             foreach ( GameObject _invisibleObject in _invisible.invisibleObjects)
             {
-                _invisibleObject.GetComponent<MeshRenderer>().enabled = (bool)stream.ReceiveNext();
+                bool active = (bool)stream.ReceiveNext();
+                _invisibleObject.GetComponent<MeshRenderer>().enabled = active;
             }
             foreach (GameObject _moveObject in _move.moveObjects)
             {
