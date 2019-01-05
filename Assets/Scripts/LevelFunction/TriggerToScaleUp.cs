@@ -69,18 +69,18 @@ public class TriggerToScaleUp : MonoBehaviour {
     {
         if (other.gameObject.tag != "Player") return;
         _isTrigger = true;
-        Debug.Log("OnTriggerEnter : " + isTrigger);
+        //Debug.Log("OnTriggerEnter : " + isTrigger);
     }
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag != "Player") return;
         _isTrigger = true;
-        Debug.Log("OnTriggerStay : " + isTrigger);
+        //Debug.Log("OnTriggerStay : " + isTrigger);
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag != "Player") return;
         _isTrigger = false;
-        Debug.Log("OnTriggerExit : " + isTrigger);
+        //Debug.Log("OnTriggerExit : " + isTrigger);
     }
 }
