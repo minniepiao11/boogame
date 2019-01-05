@@ -40,7 +40,7 @@ public class TriggerToScaleUp : MonoBehaviour {
             Debug.LogError(ScaleTarget);
             return;
         }
-
+        Debug.Log("FixedUpdate : " + isTrigger);
 
         if (_isTrigger)
         {
@@ -69,18 +69,18 @@ public class TriggerToScaleUp : MonoBehaviour {
     {
         if (other.gameObject.tag != "Player") return;
         _isTrigger = true;
-
+        Debug.Log("OnTriggerEnter : " + isTrigger);
     }
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag != "Player") return;
         _isTrigger = true;
-
+        Debug.Log("OnTriggerStay : " + isTrigger);
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag != "Player") return;
         _isTrigger = false;
-
+        Debug.Log("OnTriggerExit : " + isTrigger);
     }
 }

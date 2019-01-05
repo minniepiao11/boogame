@@ -64,7 +64,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			m_ForwardAmount = move.z;
 
 			ApplyExtraTurnRotation();
-            Debug.Log("Move" + move);
+            //Debug.Log("Move" + move);
 			// control and velocity handling is different when grounded and airborne:
 			if (m_IsGrounded)
 			{
