@@ -97,20 +97,29 @@ public class CenterDataSync : PunBehaviour{
         }
         else if(stream.isReading)
         {
-            foreach (GameObject _scaleObject in _move.moveObjects)
+            if (_scale.isActive)
             {
-                Vector3 scale = (Vector3)stream.ReceiveNext();
-                _scaleObject.transform.localScale = scale;;
+                foreach (GameObject _scaleObject in _move.moveObjects)
+                {
+                    Vector3 scale = (Vector3)stream.ReceiveNext();
+                    _scaleObject.transform.localScale = scale; ;
+                }
             }
-            foreach ( GameObject _invisibleObject in _invisible.invisibleObjects)
+            if (_invisible.isActive)
             {
-                bool active = (bool)stream.ReceiveNext();
-                _invisibleObject.GetComponent<MeshRenderer>().enabled = active;
+                foreach (GameObject _invisibleObject in _invisible.invisibleObjects)
+                {
+                    bool active = (bool)stream.ReceiveNext();
+                    _invisibleObject.GetComponent<MeshRenderer>().enabled = active;
+                }
             }
-            foreach (GameObject _moveObject in _move.moveObjects)
+            if (_move.isActive)
             {
-                Vector3 position = (Vector3)stream.ReceiveNext();
-                _moveObject.transform.position = position;
+                foreach (GameObject _moveObject in _move.moveObjects)
+                {
+                    Vector3 position = (Vector3)stream.ReceiveNext();
+                    _moveObject.transform.position = position;
+                }
             }
         }
     }
