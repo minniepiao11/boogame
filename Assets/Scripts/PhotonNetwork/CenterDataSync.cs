@@ -54,11 +54,9 @@ public class CenterDataSync : PunBehaviour
         _invisible.invisibleObjects = GameObject.FindGameObjectsWithTag("invisibleObject");
         _move.moveObjects = GameObject.FindGameObjectsWithTag("moveObject");
         _scale.scaleObjects = GameObject.FindGameObjectsWithTag("scaleObject");
-        //scaleObjects = GameObject.FindGameObjectsWithTag("scaleObject");
-        //moveObjects = GameObject.FindGameObjectsWithTag("moveObject");
-        //invisibleObjects = GameObject.FindGameObjectsWithTag("invisibleObject");
-
-        GameManager = GameObject.FindWithTag("GameManager");
+        scaleObjects = GameObject.FindGameObjectsWithTag("scaleObject");
+        moveObjects = GameObject.FindGameObjectsWithTag("moveObject");
+        invisibleObjects = GameObject.FindGameObjectsWithTag("invisibleObject");
         if(_invisible.invisibleObjects == null ||
            _scale.scaleObjects == null)
         {
