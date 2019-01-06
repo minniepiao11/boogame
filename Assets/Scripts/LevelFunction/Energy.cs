@@ -21,5 +21,9 @@ public class Energy : MonoBehaviour {
     {
         if (other.gameObject.tag != "Player") return;
 
+        m_GameManager.score += 1;
+        //this.GetComponent<MeshRenderer>().enabled = false;
+        this.GetComponent<Collider>().enabled = false;
+        this.gameObject.active = false;
     }
 }
