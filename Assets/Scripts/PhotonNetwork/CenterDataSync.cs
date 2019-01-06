@@ -16,11 +16,27 @@ public class CenterDataSync : PunBehaviour
     public GameObject[] moveObjects;
     public GameObject GameManager;
     public int Score
-    { get { 
+    { 
+        get 
+        { 
             return GameManager.GetComponent<GameManager>().score;
-        }}
+        }
+        set
+        {
+            GameManager.GetComponent<GameManager>().score = value;
+        }
+    }
     public GameStage stage
-    { get { return GameManager.GetComponent<GameManager>().stage; }}
+    { 
+        get 
+        {
+            return GameManager.GetComponent<GameManager>().stage;
+        }
+        set{
+            GameManager.GetComponent<GameManager>().stage = value;
+        }
+    
+    }
     #endregion
 
     #region define 3 types of Level Object
@@ -54,17 +70,16 @@ public class CenterDataSync : PunBehaviour
         _invisible.invisibleObjects = GameObject.FindGameObjectsWithTag("invisibleObject");
         _move.moveObjects = GameObject.FindGameObjectsWithTag("moveObject");
         _scale.scaleObjects = GameObject.FindGameObjectsWithTag("scaleObject");
-        scaleObjects = GameObject.FindGameObjectsWithTag("scaleObject");
-        moveObjects = GameObject.FindGameObjectsWithTag("moveObject");
-        invisibleObjects = GameObject.FindGameObjectsWithTag("invisibleObject");
+
+        //scaleObjects = GameObject.FindGameObjectsWithTag("scaleObject");
+        //moveObjects = GameObject.FindGameObjectsWithTag("moveObject");
+        //invisibleObjects = GameObject.FindGameObjectsWithTag("invisibleObject");
+
+        GameManager = GameObject.FindWithTag("GameManager");
         if(_invisible.invisibleObjects == null ||
            _scale.scaleObjects == null)
         {
             Debug.LogWarning("CenterDataSync : You forget to setting tags of the GameObject");
-        }
-        if(_move.moveObjects == null)
-        {
-            
         }
     }
     // Use this for initialization
@@ -104,6 +119,8 @@ public class CenterDataSync : PunBehaviour
                     stream.SendNext(acitve);
                 }
             }
+            stream.SendNext(stage);
+            stream.SendNext(Score);
         }
         else if(stream.isReading)
         {
@@ -131,6 +148,9 @@ public class CenterDataSync : PunBehaviour
                     _moveObject.transform.position = position;
                 }
             }
+
+            stage = (GameStage)stream.ReceiveNext();
+            Score = (int)stream.ReceiveNext();
         }
     }
 }

@@ -11,8 +11,9 @@ public enum GameStage
 }
 public class GameManager : MonoBehaviour {
     public Text ScoreText;
+    public Text InforText;
     public GameStage stage = GameStage.start;
-    private int _score;
+    private int _score = 0;
     public int score
     {
         get { return _score; }
@@ -24,16 +25,42 @@ public class GameManager : MonoBehaviour {
     {
         get { return _clearStageTime; }
     }
-    private GameObject[] Energy;
+    //private GameObject[] Energy;
     void Initiate()
     {
         //check GameStage
         stage = GameStage.start;
 
-        Energy = GameObject.FindGameObjectsWithTag("Energy");
+        //Energy = GameObject.FindGameObjectsWithTag("Energy");
     }
-    private void Update()
+    public void OnePlayerArriveEndEvent()
+    {
+        InforText.text = "Waiting for another player...";
+    }
+    public void EndingEvent()
+    {
+        string result = "";
+        InforText.text = "score : " + score + "/n" + "Time : " + Mathf.Floor(Time.time) + "s";
+        Debug.Log(InforText.text);
+
+    }
+    private void Start()
+    {
+        Initiate();
+        stage = GameStage.playing;
+    }
+    private void FixedUpdate()
     {
         ScoreText.text = score.ToString();
+
+        if(stage == GameStage.allPlayerArriveAtTheEnd)
+        {
+            OnePlayerArriveEndEvent();
+        }
+        else if(stage == GameStage.allPlayerArriveAtTheEnd)
+        {
+            EndingEvent();
+        }
     }
+
 }
