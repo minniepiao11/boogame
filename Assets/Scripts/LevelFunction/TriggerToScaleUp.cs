@@ -69,6 +69,7 @@ public class TriggerToScaleUp : MonoBehaviour {
     {
         if (other.gameObject.tag != "Player") return;
         _isTrigger = true;
+
         //Debug.Log("OnTriggerEnter : " + isTrigger);
     }
     private void OnTriggerStay(Collider other)

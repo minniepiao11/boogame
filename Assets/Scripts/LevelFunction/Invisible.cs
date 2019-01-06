@@ -17,6 +17,7 @@ public class Invisible : MonoBehaviour {
         if (!(other.gameObject.tag == "Player"))
             return;
         this.GetComponent<MeshRenderer>().enabled = false;
+        transform.parent.GetComponent<AudioSource>().Play();
     }
     private void OnTriggerExit(Collider other)
     {

@@ -1,0 +1,27 @@
+<Effect>
+Cartoon_Boing ㄉㄨㄞ 彈跳菇碰撞
+Magic_Chime  嘟嚕嘟嚕嘟嚕～ 魔法 可用在隱形菇消失
+Wood_Door_Open  機關啟動的聲音
+Pop  答  一般菇碰撞
+sadwowow  哇哇哇哇  可用在掉下去or輸了
+chinomaker__time-warp  歪歪歪歪  外星人吸走他們
+rocker418__time-machine  滴滴滴滴倒數與太空感  時間快要結束or準備起飛
+yaeeeeee  耶一  星球恢復or通關
+antique-clock-tick-2  噠噠噠噠節拍  可以用在緊張倒數
+button-14  ㄉㄨㄞ呦  跳（可放可不放）
+chorus_of_angels1  燈嗯～  吃到能量元素？
+Booboo  噗噗（吧噗） Booboo的聲音？
+
+<BGM>
+moguranooyako  微懸疑＋輕快
+sunadokeiseiun  輕快＋歡樂
+retrogamecenter3  急促＋歡樂
+oshironobutoukai  悠閒舞會＋暖春天感
+famipop4  平穩＋歡樂
+
+
+有霧的場景推 moguranooyako
+白天景推 sunadokeiseiun或famipop4
+
+
+

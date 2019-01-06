@@ -21,6 +21,8 @@ public class Energy : MonoBehaviour {
     {
         if (other.gameObject.tag != "Player") return;
 
+        GetComponent<AudioSource>().Play();
+
         m_GameManager.score += 1;
         //this.GetComponent<MeshRenderer>().enabled = false;
         this.GetComponent<Collider>().enabled = false;
