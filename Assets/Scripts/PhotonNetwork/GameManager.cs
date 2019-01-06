@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour {
     public Text InforText;
     public GameStage stage = GameStage.start;
     private int _score = 0;
+    public int playerNumber;
     public int score
     {
         get { return _score; }
@@ -53,11 +54,11 @@ public class GameManager : MonoBehaviour {
     {
         ScoreText.text = score.ToString();
 
-        if (stage == GameStage.onePlayerArriveAtTheEnd)
+        if (stage == GameStage.onePlayerArriveAtTheEnd || playerNumber ==1)
         {
             OnePlayerArriveEndEvent();
         }
-        else if (stage == GameStage.allPlayerArriveAtTheEnd)
+        else if (stage == GameStage.allPlayerArriveAtTheEnd || playerNumber == 2)
         {
             EndingEvent();
         }

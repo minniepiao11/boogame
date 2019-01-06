@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EndingTrigger : MonoBehaviour {
     GameManager manager;
-    int playerNumber;
 	// Use this for initialization
 	void Start () {
         manager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
@@ -18,7 +17,7 @@ public class EndingTrigger : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag != "Player") return;
-
+        manager.playerNumber += 1;
         switch (manager.stage)
         {
             case GameStage.playing:
@@ -38,7 +37,7 @@ public class EndingTrigger : MonoBehaviour {
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag != "Player") return;
-
+        manager.playerNumber -= 1;
         switch(manager.stage)
         {
             case GameStage.onePlayerArriveAtTheEnd:
