@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.Build.Content;
+//using UnityEditor.Build.Content;
 using System.Globalization;
 using System.Xml.Schema;
 
@@ -14,7 +14,7 @@ public class TriggerToScaleUp : MonoBehaviour {
     [SerializeField][Header("長到最高需要的時間")]
     float growingTime = 5f;
     float time = 0;
-    private bool isGoing = true;
+    //private bool isGoing = true;
     private bool _isTrigger;
     public  bool isTrigger
     {
