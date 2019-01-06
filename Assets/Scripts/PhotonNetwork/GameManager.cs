@@ -53,11 +53,11 @@ public class GameManager : MonoBehaviour {
     {
         ScoreText.text = score.ToString();
 
-        if(stage == GameStage.allPlayerArriveAtTheEnd)
+        if (stage == GameStage.onePlayerArriveAtTheEnd)
         {
             OnePlayerArriveEndEvent();
         }
-        else if(stage == GameStage.allPlayerArriveAtTheEnd)
+        else if (stage == GameStage.allPlayerArriveAtTheEnd)
         {
             EndingEvent();
         }

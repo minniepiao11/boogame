@@ -23,11 +23,13 @@ public class EndingTrigger : MonoBehaviour {
         {
             case GameStage.playing:
                 manager.stage = GameStage.onePlayerArriveAtTheEnd;
+                manager.OnePlayerArriveEndEvent();
                 return;
 
             case GameStage.onePlayerArriveAtTheEnd:
                 manager.stage = GameStage.allPlayerArriveAtTheEnd;
                 Debug.Log("End");
+                manager.EndingEvent();
                 return;
         }
 
