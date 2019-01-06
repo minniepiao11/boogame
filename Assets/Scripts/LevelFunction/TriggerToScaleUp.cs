@@ -40,7 +40,7 @@ public class TriggerToScaleUp : MonoBehaviour {
             Debug.LogError(ScaleTarget);
             return;
         }
-        Debug.Log("FixedUpdate : " + isTrigger);
+        //Debug.Log("FixedUpdate : " + isTrigger);
 
         if (_isTrigger)
         {

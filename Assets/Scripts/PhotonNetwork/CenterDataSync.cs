@@ -3,8 +3,10 @@ using UnityEngine;
 using Photon;
 using UnityEditor;
 using System.Linq;
+using System;
 
-public class CenterDataSync : PunBehaviour{
+public class CenterDataSync : PunBehaviour
+{
     #region public attribute
     public bool isSyncInvisible = true;
     public bool isSyncMove = true;
@@ -12,6 +14,13 @@ public class CenterDataSync : PunBehaviour{
     public GameObject[] scaleObjects;
     public GameObject[] invisibleObjects;
     public GameObject[] moveObjects;
+    public GameObject GameManager;
+    public int Score
+    { get { 
+            return GameManager.GetComponent<GameManager>().score;
+        }}
+    public GameStage stage
+    { get { return GameManager.GetComponent<GameManager>().stage; }}
     #endregion
 
     #region define 3 types of Level Object
@@ -34,6 +43,7 @@ public class CenterDataSync : PunBehaviour{
         public bool isActive;
         public GameObject[] scaleObjects;
     }
+
     #endregion
     void InitializeData()
     {
