@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public enum GameStage
 {
     start = 1,
@@ -40,9 +41,10 @@ public class GameManager : MonoBehaviour {
     }
     public void EndingEvent()
     {
-        string result = "";
-        InforText.text = "score : " + score + "/n" + "Time : " + Mathf.Floor(Time.time) + "s";
+        //string result = "";
+        InforText.text = "score : " + score + "\n" + "Time : " + Mathf.Floor(Time.time) + "s";
         Debug.Log(InforText.text);
+        SceneManager.LoadScene(1);
 
     }
     private void Start()
@@ -52,7 +54,7 @@ public class GameManager : MonoBehaviour {
     }
     private void FixedUpdate()
     {
-        ScoreText.text = score.ToString();
+        ScoreText.text = "score : " + score;
 
         if (stage == GameStage.onePlayerArriveAtTheEnd || playerNumber ==1)
         {
